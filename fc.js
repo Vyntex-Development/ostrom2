@@ -126,7 +126,7 @@
         if (!ev.target.classList.contains("dropdown-element")) {
         		allInputs.forEach( input => {
             	if(input.value === '') { input.value = ''; return; }
-							input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
+                input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
             	postalCodeIsValid = true;
             })
           }
@@ -146,7 +146,7 @@
         let msg = currentLanguage === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Postal code must have five digits";
         if(inputLength < 5) { setError(error, msg); return;}
         if(!postalCodeIsValid) return;
-        if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2, "Must be between 600 and 15000 kWh")
+        if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2,  currentLanguage === 'de' ? "Muss zwischen 600 und 15000 kWh liegen" : "Must be between 600 and 15000 kWh")
           return;
         }
         const urlLanguge=JSON.parse(localStorage.getItem('txlive:selectedlang'))==="de" ? "de_DE" : JSON.parse(localStorage.getItem('txlive:selectedlang'))
@@ -156,7 +156,7 @@
         location.href = URL
       })
       kwhInput.addEventListener('input', function(e){
-       let msg = currentLanguage === 'de' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Postal code must have five digits";
+       let msg = currentLanguage === 'de' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Must be between 600 and 15000 kWh";
        if(+e.target.value > 15000 || +e.target.value < 600) { displayError(error2, msg); personText.classList.add('hide'); return;};
        	displayError(error2, "");
         personText.classList.add('hide')
