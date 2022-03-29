@@ -72,12 +72,21 @@
           });
         });
       };
+	    
+	function language() { 
+	let currentLanguage = ''
+	  if (localStorage.getItem("txlive:selectedlang")) {
+	    currentLanguage = JSON.parse(localStorage.getItem("txlive:selectedlang"));
+	  }
+	  return currentLanguage;
+	}
+	    
        const fetchData = async (code, el) => {
         if (!code) return;postalCodeIsSet = true; firstFetch = true;
         const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
         const data = await response.json();
         if (data[0] === null) {
-        	let msg = currentLanguage === 'de' ? 'Diese Postleitzahl existiert nicht' : "This postal code doesn't exist";
+        	let msg = language() === 'en' ? 'Diese Postleitzahl existiert nicht' : "This postal code doesn't exist";
           setError(error, msg);
           postalCodeIsValid = false;
           return;
@@ -94,7 +103,7 @@
           setError(error, "");
           dropdownValues = [];
         } else {
-          let msg = currentLanguage === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Postal code must have five digits";
+          let msg = language() === 'en' ? 'Die Postleitzahl muss fünfstellig sein' : "Postal code must have five digits";
           if (firstFetch && input.length !== 0) setError(error, msg);
           removeAndClearDropdown(dropdown);
           input.value = ev.target.value;
@@ -143,10 +152,10 @@
       buttonCalculate.addEventListener('click', e => {
         e.preventDefault()
         let inputLength = input.value.trim().length;
-        let msg = currentLanguage === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Postal code must have five digits";
+        let msg = language() === 'en' ? 'Die Postleitzahl muss fünfstellig sein' : "Postal code must have five digits";
         if(inputLength < 5) { setError(error, msg); return;}
         if(!postalCodeIsValid) return;
-        if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2,  currentLanguage === 'de' ? "Muss zwischen 600 und 15000 kWh liegen" : "Must be between 600 and 15000 kWh")
+        if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2,  language() === 'en' ? "Muss zwischen 600 und 15000 kWh liegen" : "Must be between 600 and 15000 kWh")
           return;
         }
         const urlLanguge=JSON.parse(localStorage.getItem('txlive:selectedlang'))==="de" ? "de_DE" : JSON.parse(localStorage.getItem('txlive:selectedlang'))
@@ -156,7 +165,7 @@
         location.href = URL
       })
       kwhInput.addEventListener('input', function(e){
-       let msg = currentLanguage === 'de' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Must be between 600 and 15000 kWh";
+       let msg = language() === 'en' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Must be between 600 and 15000 kWh";
        if(+e.target.value > 15000 || +e.target.value < 600) { displayError(error2, msg); personText.classList.add('hide'); return;};
        	displayError(error2, "");
         personText.classList.add('hide')
