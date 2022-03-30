@@ -20,7 +20,7 @@
       const increaseBtn = wrapperEl.querySelector('#increase')
       const decreaseBtn = wrapperEl.querySelector('#decrease')
       const error = wrapperEl.querySelector('.error')
-      const error2 = wrapperEl.querySelector('.error-text-2')
+      const error2 = wrapperEl.querySelector('.error-kwh')
       let firstSelected = {};
       let firstFetch = false;
       let postalCodeIsSet = false;
