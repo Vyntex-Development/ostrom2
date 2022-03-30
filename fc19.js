@@ -57,6 +57,8 @@
         ddWrap.classList.add("dd-wrapp");
         firstSelected = {...postalCodes[0]}
         postalCodes.length > 3 ? dd.classList.add("scroll") : "";
+	postalCodeIsValid = true;
+        data = code[0];
         postalCodes.forEach((code) => {
           const li = document.createElement("li");
           li.classList.add("dropdown-element");
@@ -65,10 +67,9 @@
           dd.style.display = "block";
           dd.appendChild(ddWrap);
           li.addEventListener("click", (ev) => {
-          	isChosen = true;
+            isChosen = true;
             postalCodeInput.value = ev.target.innerText;
             postalCode = code.postcode;
-            postalCodeIsValid = true;
             data = { ...code };
             removeAndClearDropdown(dd);
           });
