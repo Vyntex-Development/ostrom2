@@ -58,7 +58,7 @@
         firstSelected = {...postalCodes[0]}
         postalCodes.length > 3 ? dd.classList.add("scroll") : "";
 	postalCodeIsValid = true;
-        data = code[0];
+        data = {...postalCodes[0]};
         postalCodes.forEach((code) => {
           const li = document.createElement("li");
           li.classList.add("dropdown-element");
