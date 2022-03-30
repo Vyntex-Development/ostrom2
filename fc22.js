@@ -60,6 +60,7 @@
 	postalCodeIsValid = true;
         data = {...postalCodes[0]};
         postalCodes.forEach((code) => {
+          postalCodeIsValid = true;
           const li = document.createElement("li");
           li.classList.add("dropdown-element");
           li.innerText = `${code.postcode} ${code.name}`;
@@ -135,10 +136,7 @@
       	let dd1 = document.querySelector('.dd-1'); 
 	let dd2 = document.querySelector('.dd-2');
 	let dd3 = document.querySelector('.dd-3');
-        //if(window.innerWidth > 768 && dd2.style.display === 'none') return;
-       	//if(window.innerWidth <= 768 &&  dd1.style.display === 'none') return;
         if (!ev.target.closest(".tarrif-sc")) { 
-	console.log("spolja klik"); 
         removeDropdown(dd2);  removeDropdown(dd3);  removeDropdown(dd1);
         if (!ev.target.classList.contains("dropdown-element")) {
         		allInputs.forEach( input => {
