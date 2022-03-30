@@ -70,6 +70,7 @@
             isChosen = true;
             postalCodeInput.value = ev.target.innerText;
             postalCode = code.postcode;
+	    console.log(code)	
             data = { ...code };
             removeAndClearDropdown(dd);
           });
@@ -167,9 +168,10 @@
         }
         const urlLanguge=JSON.parse(localStorage.getItem('txlive:selectedlang'))==="de" ? "de_DE" : JSON.parse(localStorage.getItem('txlive:selectedlang'))
         const { id, postcode, name } = data;
-        const URL = `https://join.ostrom.de/tariff-plan?cityId=${id}&postalCode=${postcode}&cityName=${name}&usage=${kwhInput.value}`;
-        hideErrors()
-        location.href = URL
+	console.log(data)
+        //const URL = `https://join.ostrom.de/tariff-plan?cityId=${id}&postalCode=${postcode}&cityName=${name}&usage=${kwhInput.value}`;
+        //hideErrors()
+        //location.href = URL
       })
       kwhInput.addEventListener('input', function(e){
        let msg = language() === 'de' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Must be between 600 and 15000 kWh";
