@@ -2,6 +2,8 @@
   const inputDesktop = document.querySelector('#postal-code-input');
   const calulateTarifMobile=document.querySelector('.header-tarrif-mobile .tarrif-sc')
   const inputMobile = document.querySelector('#autocomplete-3');
+  const calculateTarifBody = document.querySelector('.calcul-tarrif-sc');
+  const inputBody = document.querySelector('#autocomplete-2');
   let dropdownValues = [];
   function translatePlaceholder(inputEl,lang){
     if(lang==="en"){inputEl.placeholder="Postal code number"}else if(lang==="de"){inputEl.placeholder="Postleitzahl"}
@@ -32,10 +34,10 @@
       init()
       translatePlaceholder(inputDesktop,currentLanguage)
       translatePlaceholder(inputMobile,currentLanguage);
+      translatePlaceholder(inputBody,currentLanguage);
       const setError = (el, message) => {
         el.innerText = message;
        	el.style.display = 'block';
-        console.log(currentLanguage)
       };
       const removeAndClearDropdown = (dd) => {
         dd.style.display = "none"; dd.innerHTML = ""; dd.classList.remove("scroll")
@@ -207,4 +209,5 @@
     }
     tarrifHandler(calulateTarifScHeader,inputDesktop)
     tarrifHandler(calulateTarifMobile,inputMobile)
+    tarrifHandler(calculateTarifBody,inputBody)
   })
