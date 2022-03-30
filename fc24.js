@@ -85,7 +85,7 @@
 	}
 	    
        const fetchData = async (code, el) => {
-        if (!code) return;postalCodeIsSet = true; \
+        if (!code) return;postalCodeIsSet = true; 
 	firstFetch = true;
         const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
         const data = await response.json();
