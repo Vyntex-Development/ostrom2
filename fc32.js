@@ -131,8 +131,13 @@ window.addEventListener('DOMContentLoaded', () => {
       removeDropdown(dd3);
       if (!ev.target.classList.contains("dropdown-element")) {
           allInputs.forEach( input => {
-            if(input.value === '') { input.value = ''; return; }
-              input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
+            if(input.value === '') { 
+	       input.value = ''; 
+	       return; 
+	    }
+            if(input.value.length === 5) {
+	       input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
+            }
             postalCodeIsValid = true;
           })
         }
