@@ -88,18 +88,18 @@
         if (!code) return;postalCodeIsSet = true; 
 	firstFetch = true;
         const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
-        const data = await response.json();
-        if (data[0] === null) {
+        const postalCodes = await response.json();
+        if (postalCodes[0] === null) {
         	let msg = language() === 'de' ? 'Postleitzahl existiert nicht' : "Post code does not exist";
           setError(error, msg);
           postalCodeIsValid = false;
           return;
         }
         postalCodeIsValid = true; 
-	data = {...data[0]};
+	data = {...postalCodes[0]};
 	let dropdown = getDropdown(el); removeAndClearDropdown(dropdown); 
-	setDropdown(data, dropdown);	
-        dropdownValues = [...data];
+	setDropdown(postalCodes, dropdown);	
+        dropdownValues = [...postalCodes];
       };
       input.addEventListener("input", (ev) => {
         let enteredNumbersLength = ev.target.value.trim().length;
