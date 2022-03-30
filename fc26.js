@@ -147,7 +147,7 @@
             	postalCodeIsValid = true;
             })
           }
-          data = { ...dropdownValues[0] };
+          //data = { ...dropdownValues[0] };
         }
       });
       closeImg.addEventListener('click', (ev) => {
