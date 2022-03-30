@@ -57,6 +57,7 @@
         ddWrap.classList.add("dd-wrapp");
         firstSelected = {...postalCodes[0]}
         postalCodes.length > 3 ? dd.classList.add("scroll") : "";
+	data = {...postalCodes[0]};
         postalCodes.forEach((code) => {
           postalCodeIsValid = true;
           const li = document.createElement("li");
@@ -96,7 +97,6 @@
           return;
         }
         postalCodeIsValid = true; 
-	data = {...postalCodes[0]};
 	let dropdown = getDropdown(el); removeAndClearDropdown(dropdown); 
 	setDropdown(postalCodes, dropdown);	
         dropdownValues = [...postalCodes];
