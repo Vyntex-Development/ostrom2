@@ -2,7 +2,7 @@ const calculateTarifBody = document.querySelector('.calcul-tarrif-sc');
 const inputBody = document.querySelector('#autocomplete-2');
 let dropdownValues = [];
 function translatePlaceholder(inputEl,lang){
-  if(lang==="en"){inputEl.placeholder="Postal code number"}else if(lang==="de"){inputEl.placeholder="Postleitzahl"}
+  if(lang==="en"){inputEl.placeholder="Enter Postalcode"}else if(lang==="de"){inputEl.placeholder="Postleitzahl eingeben"}
 }
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.dropdown-text').forEach(lg=>{lg.textContent=currentLanguage==="de" ? "Deutsch" : "English"})
@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setError(error, "");
         dropdownValues = [];
       } else {
-        let msg = language() === 'de' ? 'Die Postleitzahl muss 5-stellig sein' : "Post code must have 5 digits";
+        let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Post code must have 5 digits";
         if (firstFetch && input.length !== 0) setError(error, msg);
         removeAndClearDropdown(dropdown);
         input.value = ev.target.value;
@@ -148,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
     buttonCalculate.addEventListener('click', e => {
       e.preventDefault()
       let inputLength = input.value.trim().length;
-      let msg = language() === 'de' ? 'Die Postleitzahl muss 5-stellig sein' : "Post code must have 5 digits";
+      let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Post code must have 5 digits";
       if(inputLength < 5) { setError(error, msg); return;}
       if(!postalCodeIsValid) return;
       if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2,  language() === 'de' ? "Muss zwischen 600 und 15000 kWh liegen" : "Must be between 600 and 15000 kWh")
