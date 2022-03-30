@@ -193,7 +193,13 @@
         personText.textContent = buildPersonText(personCount);
         displayKwh(kwhInput, kwHValue);
       })
-      function displayKwh(input, value) {
+      function displayKwh(input, value) {    
+       if(value > 15000 || value < 600) { 
+           let msg = language() === 'de' ? 'Muss zwischen 600 und 15000 kWh liegen' : "Must be between 600 and 15000 kWh";
+	   displayError(error2, msg); 
+       } else {
+            displayError(error2, "");
+	}
       	input.value = value;
       }
       function checkHide() {
