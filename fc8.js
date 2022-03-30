@@ -130,12 +130,13 @@
         removeDropdown(dropdown);
       });
       document.body.addEventListener("click", (ev) => {
-      	let dd1 = document.querySelector('.dd-1'); 
-	let dd2 = document.querySelector('.dd-2');
-	let dd3 = document.querySelector('.dd-3');
-        if(window.innerWidth > 768 && dd2.style.display === 'none') return;
-       	if(window.innerWidth <= 768 &&  dd1.style.display === 'none') return;
-        if (!ev.target.closest(".tarrif-sc")) { removeDropdown(dd1); removeDropdown(dd2);  removeDropdown(dd3);
+      	//let dd1 = document.querySelector('.dd-1'); 
+	//let dd2 = document.querySelector('.dd-2');
+	//let dd3 = document.querySelector('.dd-3');
+        //if(window.innerWidth > 768 && dd2.style.display === 'none') return;
+       	//if(window.innerWidth <= 768 &&  dd1.style.display === 'none') return;
+        if (!ev.target.closest(".tarrif-sc")) { removeDropdown(ev.target.querySelector('.pc-dropdown')); 
+        //removeDropdown(dd2);  removeDropdown(dd3);
         if (!ev.target.classList.contains("dropdown-element")) {
         		allInputs.forEach( input => {
             	if(input.value === '') { input.value = ''; return; }
