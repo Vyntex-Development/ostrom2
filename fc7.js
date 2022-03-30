@@ -135,7 +135,6 @@
 	let dd3 = document.querySelector('.dd-3');
         if(window.innerWidth > 768 && dd2.style.display === 'none') return;
        	if(window.innerWidth <= 768 &&  dd1.style.display === 'none') return;
-	if(dd3.style.display === 'none') return;
         if (!ev.target.closest(".tarrif-sc")) { removeDropdown(dd1); removeDropdown(dd2);  removeDropdown(dd3);
         if (!ev.target.classList.contains("dropdown-element")) {
         		allInputs.forEach( input => {
