@@ -57,8 +57,6 @@
         ddWrap.classList.add("dd-wrapp");
         firstSelected = {...postalCodes[0]}
         postalCodes.length > 3 ? dd.classList.add("scroll") : "";
-	postalCodeIsValid = true;
-        data = {...postalCodes[0]};
         postalCodes.forEach((code) => {
           postalCodeIsValid = true;
           const li = document.createElement("li");
@@ -87,7 +85,8 @@
 	}
 	    
        const fetchData = async (code, el) => {
-        if (!code) return;postalCodeIsSet = true; firstFetch = true;
+        if (!code) return;postalCodeIsSet = true; \
+	firstFetch = true;
         const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
         const data = await response.json();
         if (data[0] === null) {
@@ -96,7 +95,10 @@
           postalCodeIsValid = false;
           return;
         }
-        postalCodeIsValid = true; let dropdown = getDropdown(el); removeAndClearDropdown(dropdown); setDropdown(data, dropdown);
+        postalCodeIsValid = true; 
+	data = {...data[0]};
+	let dropdown = getDropdown(el); removeAndClearDropdown(dropdown); 
+	setDropdown(data, dropdown);	
         dropdownValues = [...data];
       };
       input.addEventListener("input", (ev) => {
