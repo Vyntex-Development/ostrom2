@@ -6,7 +6,7 @@
   const inputBody = document.querySelector('#autocomplete-2');
   let dropdownValues = [];
   function translatePlaceholder(inputEl,lang){
-    if(lang==="en"){inputEl.placeholder="Postal code number"}else if(lang==="de"){inputEl.placeholder="Postleitzahl"}
+    if(lang==="en"){inputEl.placeholder="Enter Postalcode"}else if(lang==="de"){inputEl.placeholder="Postleitzahl eingeben"}
   }
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.dropdown-text').forEach(lg=>{lg.textContent=currentLanguage==="de" ? "Deutsch" : "English"})
