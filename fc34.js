@@ -137,6 +137,7 @@
       	let dd1 = document.querySelector('.dd-1'); 
 	let dd2 = document.querySelector('.dd-2');
 	let dd3 = document.querySelector('.dd-3');
+	isChosen = true;
         if (!ev.target.closest(".tarrif-sc")) { 
         removeDropdown(dd2);  removeDropdown(dd3);  removeDropdown(dd1);
         if (!ev.target.classList.contains("dropdown-element")) {
@@ -146,7 +147,6 @@
 	          return; 
 		}
 		 if(input.value.length === 5) {
-	            isChosen = true;
 		    input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
 		 }
             	postalCodeIsValid = true;
