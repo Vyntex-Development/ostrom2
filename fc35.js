@@ -126,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     document.body.addEventListener("click", (ev) => {
       let dd3 = document.querySelector('.dd-3');
-
+      isChosen = true;
       if (!ev.target.closest(".tarrif-sc")) { 
       removeDropdown(dd3);
       if (!ev.target.classList.contains("dropdown-element")) {
