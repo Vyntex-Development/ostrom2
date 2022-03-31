@@ -70,7 +70,6 @@
             isChosen = true;
             postalCodeInput.value = ev.target.innerText;
             postalCode = code.postcode;
-	    console.log(code)	
             data = { ...code };
             removeAndClearDropdown(dd);
           });
@@ -147,6 +146,7 @@
 	          return; 
 		}
 		 if(input.value.length === 5) {
+	            isChosen = true;
 		    input.value = `${dropdownValues[0].postcode} ${dropdownValues[0].name}`;
 		 }
             	postalCodeIsValid = true;
