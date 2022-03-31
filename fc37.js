@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
       const data = await response.json();
       if (data[0] === null) {
-        let msg = language() === 'de' ? 'Postleitzahl existiert nicht' : "Post code does not exist";
+        let msg = language() === 'de' ? 'Postleitzahl existiert nicht' : "Postalcode does not exist";
         setError(error, msg);
         postalCodeIsValid = false;
         return;
@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setError(error, "");
         dropdownValues = [];
       } else {
-        let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Post code must have 5 digits";
+        let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Postalcode must have 5 digits";
         if (firstFetch && input.length !== 0) setError(error, msg);
         removeAndClearDropdown(dropdown);
         input.value = ev.target.value;
@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', () => {
     buttonCalculate.addEventListener('click', e => {
       e.preventDefault()
       let inputLength = input.value.trim().length;
-      let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Post code must have 5 digits";
+      let msg = language() === 'de' ? 'Die Postleitzahl muss fünfstellig sein' : "Postalcode must have 5 digits";
       if(inputLength < 5) { setError(error, msg); return;}
       if(!postalCodeIsValid) return;
       if (+kwhInput.value > 15000 || +kwhInput.value < 600) { displayError(error2,  language() === 'de' ? "Muss zwischen 600 und 15000 kWh liegen" : "Must be between 600 and 15000 kWh")
