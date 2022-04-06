@@ -89,7 +89,7 @@
 	firstFetch = true;
         const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
         const postalCodes = await response.json();
-        if (postalCodes[0] === []) {
+        if (postalCodes.length === 0) {
         	let msg = language() === 'de' ? 'Postleitzahl existiert nicht' : "Postalcode does not exist";
           setError(error, msg);
           postalCodeIsValid = false;
