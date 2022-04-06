@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!code) return;postalCodeIsSet = true; firstFetch = true;
       const response = await fetch(`https://api.ostrom.de/v1/addresses/cities?zip=${code}`);
       const data = await response.json();
-      if (data[0] === null) {
+      if (data.length === 0) {
         let msg = language() === 'de' ? 'Postleitzahl existiert nicht' : "Postalcode does not exist";
         setError(error, msg);
         postalCodeIsValid = false;
